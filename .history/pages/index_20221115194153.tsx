@@ -8,7 +8,9 @@ export async function getStaticProps() {
     process.env.SUPABASE_SEERVICE_ROLE_KEY || " "
   );
 
-  const {data} = await client.from("Photos").select("*").order("id");
+  const data = await client.from("Photos").select("*").order("id");
+
+  console.log(data);
 
   return {
     props: {photos: data},

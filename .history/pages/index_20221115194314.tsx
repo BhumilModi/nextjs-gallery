@@ -10,6 +10,8 @@ export async function getStaticProps() {
 
   const {data} = await client.from("Photos").select("*").order("id");
 
+  console.log(data);
+
   return {
     props: {photos: data},
   };

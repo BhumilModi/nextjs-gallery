@@ -8,7 +8,9 @@ export async function getStaticProps() {
     process.env.SUPABASE_SEERVICE_ROLE_KEY || " "
   );
 
-  const {data} = await client.from("Photos").select("*").order("id");
+  const {data} = await client.from("images").select("*").order("id");
+
+  console.log(data);
 
   return {
     props: {photos: data},
@@ -25,6 +27,15 @@ type Photo = {
 
 const PhotoContainer = ({photo}: {photo: Photo}) => {
   const [isLoading, setLoading] = useState(true);
+
+  const client = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || " ",
+    process.env.SUPABASE_SEERVICE_ROLE_KEY || " "
+  );
+
+  const data = client.from("images").select("*").order("id");
+
+  console.log(data);
 
   const imageState = isLoading
     ? "grayScale blur-2xl scale-110"

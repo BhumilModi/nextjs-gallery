@@ -5,9 +5,9 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'i.pinimg.com',
+        hostname: 'rare-gallery.com',
         port: '',
-        pathname: '/564x/**',
+        pathname: '/thumbnail/**',
       },
     ],
   },
